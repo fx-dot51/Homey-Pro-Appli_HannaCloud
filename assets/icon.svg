@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960">
+  <style>
+    * { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+
+  <!-- Ligne horizontale (bord de piscine) -->
+  <line x1="60" y1="420" x2="900" y2="420" stroke-width="48"/>
+
+  <!-- Montant gauche échelle -->
+  <line x1="330" y1="420" x2="330" y2="180" stroke-width="48"/>
+  <!-- Arrondi haut gauche -->
+  <path d="M330 180 A70 70 0 0 1 470 180" stroke-width="48" fill="none"/>
+  <!-- Montant droit échelle -->
+  <line x1="470" y1="420" x2="470" y2="180" stroke-width="48"/>
+
+  <!-- Deuxième échelle (droite) -->
+  <line x1="560" y1="420" x2="560" y2="180" stroke-width="48"/>
+  <path d="M560 180 A70 70 0 0 1 700 180" stroke-width="48" fill="none"/>
+  <line x1="700" y1="420" x2="700" y2="180" stroke-width="48"/>
+
+  <!-- Barreaux échelle gauche -->
+  <line x1="330" y1="310" x2="470" y2="310" stroke-width="40"/>
+  <line x1="330" y1="370" x2="470" y2="370" stroke-width="40"/>
+
+  <!-- Barreaux échelle droite -->
+  <line x1="560" y1="310" x2="700" y2="310" stroke-width="40"/>
+  <line x1="560" y1="370" x2="700" y2="370" stroke-width="40"/>
+
+  <!-- Vagues eau -->
+  <path d="M60 530 Q180 490 300 530 Q420 570 540 530 Q660 490 780 530 Q870 558 900 545" stroke-width="44"/>
+  <path d="M60 640 Q180 600 300 640 Q420 680 540 640 Q660 600 780 640 Q870 668 900 655" stroke-width="44"/>
+  <path d="M60 750 Q180 710 300 750 Q420 790 540 750 Q660 710 780 750 Q870 778 900 765" stroke-width="44"/>
+</svg>
