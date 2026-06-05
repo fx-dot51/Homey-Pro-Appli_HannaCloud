@@ -24,15 +24,15 @@
     "xlarge": "./assets/images/xlarge.png"
   },
   "author": {
-    "name": "Homey User",
+    "name": "Phikss",
     "email": "user@example.com"
   },
   "homepage": "https://www.hannacloud.com",
   "support": "mailto:user@example.com",
   "bugs": {
-    "url": "https://github.com/user/com.hannacloud.pool/issues"
+    "url": "https://github.com/fx-dot51/Homey-Pro-Appli_HannaCloud/issues"
   },
-  "source": "https://github.com/user/com.hannacloud.pool",
+  "source": "https://github.com/fx-dot51/Homey-Pro-Appli_HannaCloud/issues",
   "drivers": [
     {
       "id": "pool-controller",
