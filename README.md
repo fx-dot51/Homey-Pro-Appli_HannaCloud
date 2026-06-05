@@ -19,7 +19,8 @@ HannaCloud account at a configurable interval.
 ## Development
 ```bash
 npm install
-homey app run --remote
+homey app run --remote(for debugging)
+homey app install (install on homey)
 ```
 
 ## Notes
