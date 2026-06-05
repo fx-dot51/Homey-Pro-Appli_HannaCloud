@@ -1,0 +1,296 @@
+{
+  "id": "com.hannacloud.pool",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Hanna Cloud Pool",
+    "fr": "Hanna Cloud Piscine"
+  },
+  "description": {
+    "en": "Keep your pool perfectly balanced, automatically.",
+    "fr": "Gardez votre piscine parfaitement équilibrée, automatiquement."
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "./assets/images/small.png",
+    "large": "./assets/images/large.png",
+    "xlarge": "./assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Homey User",
+    "email": "user@example.com"
+  },
+  "homepage": "https://www.hannacloud.com",
+  "support": "mailto:user@example.com",
+  "bugs": {
+    "url": "https://github.com/user/com.hannacloud.pool/issues"
+  },
+  "source": "https://github.com/user/com.hannacloud.pool",
+  "drivers": [
+    {
+      "id": "pool-controller",
+      "name": {
+        "en": "Pool Controller",
+        "fr": "Contrôleur de piscine"
+      },
+      "images": {
+        "small": "./drivers/pool-controller/assets/images/small.png",
+        "large": "./drivers/pool-controller/assets/images/large.png",
+        "xlarge": "./drivers/pool-controller/assets/images/xlarge.png"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_ph",
+        "measure_chlorine_orp",
+        "measure_temperature",
+        "measure_temperature_air"
+      ],
+      "capabilitiesOptions": {
+        "measure_ph": {
+          "title": {
+            "en": "pH Value",
+            "fr": "Valeur pH"
+          }
+        },
+        "measure_chlorine_orp": {
+          "title": {
+            "en": "Chlorine (ORP)",
+            "fr": "Chlore (ORP)"
+          }
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Water Temperature",
+            "fr": "Température de l'eau"
+          }
+        },
+        "measure_temperature_air": {
+          "title": {
+            "en": "Air Temperature",
+            "fr": "Température de l'air"
+          }
+        }
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "Email address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "your@email.com",
+              "fr": "votre@email.com"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Poll interval (minutes)",
+            "fr": "Intervalle (minutes)"
+          },
+          "value": 60,
+          "min": 5,
+          "max": 1440
+        }
+      ],
+      "icon": "./drivers/pool-controller/assets/icon.svg"
+    }
+  ],
+  "capabilities": {
+    "measure_ph": {
+      "type": "number",
+      "title": {
+        "en": "pH",
+        "fr": "pH"
+      },
+      "units": {
+        "en": "pH"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "min": 0,
+      "max": 14,
+      "decimals": 2,
+      "insights": true,
+      "icon": "./assets/capabilities/measure_ph.svg"
+    },
+    "measure_chlorine_orp": {
+      "type": "number",
+      "title": {
+        "en": "Chlorine ORP",
+        "fr": "Chlore ORP"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "units": {
+        "en": "mV",
+        "fr": "mV"
+      },
+      "min": -2000,
+      "max": 2000,
+      "decimals": 0,
+      "insights": true,
+      "icon": "./assets/capabilities/measure_chlorine_orp.svg"
+    },
+    "measure_temperature_air": {
+      "type": "number",
+      "title": {
+        "en": "Air Temperature",
+        "fr": "Température de l'air"
+      },
+      "units": {
+        "en": "°C",
+        "fr": "°C"
+      },
+      "min": -40,
+      "max": 80,
+      "decimals": 1,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/capabilities/measure_temperature_air.svg"
+    }
+  },
+  "flow": {
+    "conditions": [
+      {
+        "id": "ph_in_range",
+        "title": {
+          "en": "pH is in range",
+          "fr": "Le pH est dans la plage"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=pool-controller"
+          },
+          {
+            "type": "number",
+            "name": "min_ph",
+            "title": {
+              "en": "Minimum pH",
+              "fr": "pH minimum"
+            },
+            "min": 0,
+            "max": 14,
+            "step": 0.1,
+            "placeholder": {
+              "en": "7.0",
+              "fr": "7.0"
+            }
+          },
+          {
+            "type": "number",
+            "name": "max_ph",
+            "title": {
+              "en": "Maximum pH",
+              "fr": "pH maximum"
+            },
+            "min": 0,
+            "max": 14,
+            "step": 0.1,
+            "placeholder": {
+              "en": "7.6",
+              "fr": "7.6"
+            }
+          }
+        ],
+        "titleFormatted": {
+          "en": "pH is between !{{|not between}} [[min_ph]] and [[max_ph]]",
+          "fr": "Le pH est !{{entre|pas entre}} [[min_ph]] et [[max_ph]]"
+        },
+        "hint": {
+          "en": "Recommended safe range for pools: 7.0 – 7.6",
+          "fr": "Plage recommandée pour une piscine : 7,0 – 7,6"
+        }
+      },
+      {
+        "id": "orp_in_range",
+        "title": {
+          "en": "Chlorine ORP is in range",
+          "fr": "Le chlore ORP est dans la plage"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=pool-controller"
+          },
+          {
+            "type": "number",
+            "name": "min_orp",
+            "title": {
+              "en": "Minimum ORP (mV)",
+              "fr": "ORP minimum (mV)"
+            },
+            "min": 0,
+            "max": 2000,
+            "step": 10,
+            "placeholder": {
+              "en": "650",
+              "fr": "650"
+            }
+          },
+          {
+            "type": "number",
+            "name": "max_orp",
+            "title": {
+              "en": "Maximum ORP (mV)",
+              "fr": "ORP maximum (mV)"
+            },
+            "min": 0,
+            "max": 2000,
+            "step": 10,
+            "placeholder": {
+              "en": "750",
+              "fr": "750"
+            }
+          }
+        ],
+        "titleFormatted": {
+          "en": "Chlorine ORP is between !{{|not between}} [[min_orp]] mV and [[max_orp]] mV",
+          "fr": "Le chlore ORP est !{{entre|pas entre}} [[min_orp]] mV et [[max_orp]] mV"
+        },
+        "hint": {
+          "en": "Recommended range for well-treated water: 650 – 750 mV",
+          "fr": "Plage recommandée pour une eau bien traitée : 650 – 750 mV"
+        }
+      }
+    ]
+  },
+  "brandColor": "#0077B6",
+  "icon": "./assets/icon.svg"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "com.hannacloud.pool",
+  "version": "1.0.0",
+  "description": "Hanna Cloud Pool monitor for Homey Pro",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.9"
+  }
+}
