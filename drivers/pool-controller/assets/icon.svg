@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960">
+  <style>
+    .body { fill: none; stroke: currentColor; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    .screen { fill: none; stroke: currentColor; stroke-width: 20; }
+    .btn { fill: currentColor; }
+    .pump-track { fill: none; stroke: currentColor; stroke-width: 20; }
+    .pump-arm  { fill: none; stroke: currentColor; stroke-width: 14; stroke-linecap: round; }
+    .pump-hub  { fill: none; stroke: currentColor; stroke-width: 14; }
+    .pump-roller { fill: none; stroke: currentColor; stroke-width: 14; }
+  </style>
+  <g transform="translate(140,140)">
+    <!-- Corps principal arrondi -->
+    <rect class="body" x="90" y="120" width="560" height="440" rx="90" ry="90"/>
+    <!-- Écran -->
+    <rect class="screen" x="140" y="180" width="240" height="170" rx="14" ry="14"/>
+    <!-- 4 voyants sous l'écran -->
+    <circle class="btn" cx="155" cy="400" r="12"/>
+    <circle class="btn" cx="218" cy="400" r="12"/>
+    <circle class="btn" cx="302" cy="400" r="12"/>
+    <circle class="btn" cx="365" cy="400" r="12"/>
+    <!-- Pompe gauche -->
+    <path class="pump-track" d="M152 522 A52 52 0 1 1 248 522" stroke-linecap="round"/>
+    <line class="pump-arm" x1="200" y1="490" x2="200" y2="455"/>
+    <line class="pump-arm" x1="200" y1="490" x2="172" y2="516"/>
+    <line class="pump-arm" x1="200" y1="490" x2="228" y2="516"/>
+    <circle class="pump-roller" cx="200" cy="452" r="10"/>
+    <circle class="pump-roller" cx="169" cy="519" r="10"/>
+    <circle class="pump-roller" cx="231" cy="519" r="10"/>
+    <circle class="pump-hub" cx="200" cy="490" r="13"/>
+    <!-- Pompe droite -->
+    <path class="pump-track" d="M282 522 A52 52 0 1 1 378 522" stroke-linecap="round"/>
+    <line class="pump-arm" x1="330" y1="490" x2="330" y2="455"/>
+    <line class="pump-arm" x1="330" y1="490" x2="302" y2="516"/>
+    <line class="pump-arm" x1="330" y1="490" x2="358" y2="516"/>
+    <circle class="pump-roller" cx="330" cy="452" r="10"/>
+    <circle class="pump-roller" cx="299" cy="519" r="10"/>
+    <circle class="pump-roller" cx="361" cy="519" r="10"/>
+    <circle class="pump-hub" cx="330" cy="490" r="13"/>
+  </g>
+</svg>
